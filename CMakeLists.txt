@@ -8,6 +8,10 @@ FETCHCONTENT_MAKEAVAILABLE(SFML)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(untitled main.cpp)
+add_executable(untitled main.cpp
+        Game.hpp
+        Game.cpp
+        Player.hpp
+        Player.cpp)
 
 target_link_libraries(untitled sfml-graphics)
