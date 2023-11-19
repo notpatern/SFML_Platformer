@@ -1,0 +1,3 @@
+C:/Users/rodie/OneDrive/Desktop/Enjmin/_Prog/C++/untitled/rpg-game/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/sfml-populate.dir
+C:/Users/rodie/OneDrive/Desktop/Enjmin/_Prog/C++/untitled/rpg-game/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/edit_cache.dir
+C:/Users/rodie/OneDrive/Desktop/Enjmin/_Prog/C++/untitled/rpg-game/cmake-build-debug/_deps/sfml-subbuild/CMakeFiles/rebuild_cache.dir
