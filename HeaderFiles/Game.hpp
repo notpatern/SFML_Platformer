@@ -6,11 +6,10 @@
 #define UNTITLED_GAME_HPP
 
 #include <iostream>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
+#include "SFML/Window/Event.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Graphics.hpp"
 #include "Player.hpp"
-
 
 class Game {
 private:

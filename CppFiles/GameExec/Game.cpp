@@ -1,8 +1,8 @@
 
 
-#include "Game.hpp"
+#include "../../HeaderFiles/Game.hpp"
 
-Game::Game() : player(Player(100,100)) {
+Game::Game() : player(Player(50,50)) {
 	this->InitWindow();
 }
 

@@ -6,10 +6,10 @@
 #define UNTITLED_PLAYER_HPP
 
 #include <iostream>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Audio.hpp>
-#include <SFML/Graphics.hpp>
-#include <Math.h>
+#include "SFML/Window/Event.hpp"
+#include "SFML/Audio.hpp"
+#include "SFML/Graphics.hpp"
+#include <math.h>
 
 class Player {
 private:
@@ -21,6 +21,7 @@ private:
 
 	// movement
 	bool grounded;
+	bool moving;
 	float maxMoveSpeed;
 	float xVel = 0;
 	float yVel = 0;
@@ -39,7 +40,7 @@ private:
 	void SyncBodyShape();
 
 public:
-	Player(float playerHeight, float playerWidth, float maxMoveSpeed = 800, float accel = 15000, float friction = 2000);
+	Player(float playerHeight, float playerWidth, float maxMoveSpeed = 800, float jumpForce = 1500, float accel = 25000, float friction = 10000);
 	~Player();
 
 	void Update(float dt);

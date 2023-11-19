@@ -1,5 +1,5 @@
 
-#include "Game.hpp"
+#include "../../HeaderFiles/Game.hpp"
 
 int main() {
 	Game game;
