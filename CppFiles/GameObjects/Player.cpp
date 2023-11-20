@@ -9,8 +9,8 @@ Player::Player(float playerHeight, float playerWidth, float maxMoveSpeed, float 
 Player::~Player() = default;
 
 void Player::InitPlayer() {
-	body.height = this->playerHeight;
-	body.width = this->playerWidth;
+	body.height = playerHeight;
+	body.width = playerWidth;
 	body.top = 490;
 	grounded = false;
 	gravity = 9000;
@@ -18,8 +18,8 @@ void Player::InitPlayer() {
 	playerShape.setSize(sf::Vector2f(playerWidth, playerHeight));
 }
 
-void Player::Update(float dt) {
-	std::cout << xVel << std::endl;
+void Player::Update(float dt, sf::RenderTarget &target) {
+	Player::CheckGrounded(target);
 	UpdatePhysics(dt);
 	Movement(dt);
 }
@@ -38,7 +38,7 @@ void Player::Movement(float dt) {
 		xVel = std::max(xVel - accel * dt, -maxMoveSpeed);
 		moving = true;
 	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && grounded) {
 		Jump();
 	}
 
@@ -74,6 +74,11 @@ void Player::SyncBodyShape() {
 	playerShape.setPosition(sf::Vector2f (body.left, body.top));
 }
 
-bool Player::CheckGrounded() {
-
+void Player::CheckGrounded(sf::RenderTarget &target) {
+	if (body.top + body.height < target.getSize().y) {
+		grounded = false;
+	} else {
+		body.top = target.getSize().y - body.height;
+		grounded = true;
+	}
 }

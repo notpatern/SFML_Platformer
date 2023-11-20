@@ -3,7 +3,7 @@
 #include "../../HeaderFiles/Game.hpp"
 
 Game::Game() : player(Player(50,50)) {
-	this->InitWindow();
+	InitWindow();
 }
 
 Game::~Game() {
@@ -11,38 +11,38 @@ Game::~Game() {
 }
 
 void Game::UpdateDt() {
-	this -> dt = this -> dtClock.restart().asSeconds();
+	dt = dtClock.restart().asSeconds();
 }
 
 void Game::UpdateSFMLEvent() {
-	if (this->window.pollEvent(this->event)) {
-		if (this->event.type == sf::Event::Closed)
+	if (window.pollEvent(event)) {
+		if (event.type == sf::Event::Closed)
 			window.close();
 	}
 }
 
 void Game::Update() {
-	this->UpdateSFMLEvent();
-	player.Update(this->dt);
+	UpdateSFMLEvent();
+	player.Update(dt, window);
 }
 
 void Game::Render() {
-	this->window.clear();
+	window.clear();
 
 	player.Render(window);
 
-	this->window.display();
+	window.display();
 }
 
 void Game::run() {
-	while (this->window.isOpen()) {
-		this->UpdateDt();
-		this->Update();
-		this->Render();
+	while (window.isOpen()) {
+		UpdateDt();
+		Update();
+		Render();
 	}
 }
 
 void Game::InitWindow() {
-	this->window.create(sf::VideoMode(1920,1080), "SFML Platformer", sf::Style::Default);
+	window.create(sf::VideoMode(1920,1080), "SFML Platformer", sf::Style::Default);
 }
 

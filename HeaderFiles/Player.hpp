@@ -32,7 +32,7 @@ private:
 
 	void InitPlayer();
 	void UpdatePhysics(float dt);
-	bool CheckGrounded();
+	void CheckGrounded(sf::RenderTarget &target);
 	void Movement(float dt);
 	void Gravity(float dt);
 	void Friction(float dt);
@@ -40,10 +40,10 @@ private:
 	void SyncBodyShape();
 
 public:
-	Player(float playerHeight, float playerWidth, float maxMoveSpeed = 800, float jumpForce = 1500, float accel = 25000, float friction = 10000);
+	Player(float playerHeight, float playerWidth, float maxMoveSpeed = 800, float jumpForce = 1500, float accel = 8000, float friction = 2000);
 	~Player();
 
-	void Update(float dt);
+	void Update(float dt, sf::RenderTarget &target);
 	void Render(sf::RenderTarget &target);
 };
 
