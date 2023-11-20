@@ -1,4 +1,4 @@
-#include "../../HeaderFiles/Player.hpp"
+#include "../Engine/Physics/Player.hpp"
 
 Player::Player(float playerHeight, float playerWidth, float maxMoveSpeed, float jumpForce, float accel, float friction)
 	: playerHeight(playerHeight), playerWidth(playerWidth), maxMoveSpeed(maxMoveSpeed), jumpForce(jumpForce), accel(accel), friction(friction)

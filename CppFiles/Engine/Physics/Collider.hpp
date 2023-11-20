@@ -12,8 +12,8 @@ public:
 	~Collider();
 
 	bool CheckCollision(Collider &other, float push);
-	sf::Vector2f GetPosition() { return {body.left, body.top}; }
-	sf::Vector2f GetHalfSize() { return {body.width / 2.0f, body.height / 2.0f}; }
+	[[nodiscard]] sf::Vector2f GetPosition() const { return {body.left, body.top}; }
+	[[nodiscard]] sf::Vector2f GetHalfSize() const { return {body.width / 2.0f, body.height / 2.0f}; }
 
 private:
 	sf::FloatRect &body;

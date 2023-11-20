@@ -1,13 +1,13 @@
 
 
-#include "../../HeaderFiles/Game.hpp"
+#include "Game.hpp"
 
 Game::Game() : player(Player(50,50)) {
 	InitWindow();
 }
 
 Game::~Game() {
-
+	delete window;
 }
 
 void Game::UpdateDt() {
@@ -15,27 +15,27 @@ void Game::UpdateDt() {
 }
 
 void Game::UpdateSFMLEvent() {
-	if (window.pollEvent(event)) {
+	if (window->pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
-			window.close();
+			window->close();
 	}
 }
 
 void Game::Update() {
 	UpdateSFMLEvent();
-	player.Update(dt, window);
+	player.Update(dt, *window);
 }
 
 void Game::Render() {
-	window.clear();
+	window->clear();
 
-	player.Render(window);
+	player.Render(*window);
 
-	window.display();
+	window->display();
 }
 
 void Game::run() {
-	while (window.isOpen()) {
+	while (window->isOpen()) {
 		UpdateDt();
 		Update();
 		Render();
@@ -43,6 +43,6 @@ void Game::run() {
 }
 
 void Game::InitWindow() {
-	window.create(sf::VideoMode(1920,1080), "SFML Platformer", sf::Style::Default);
+	window = new sf::RenderWindow(sf::VideoMode(1920,1080), "SFML Platformer", sf::Style::Default);
 }
 
