@@ -6,7 +6,7 @@
 #define UNTITLED_GAME_HPP
 
 #include "State.hpp"
-#include "Physics/Player.hpp"
+#include "../../GameObjects/Player.hpp"
 
 class Game {
 private:

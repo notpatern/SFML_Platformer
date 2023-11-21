@@ -8,15 +8,15 @@ FETCHCONTENT_MAKEAVAILABLE(SFML)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(untitled CppFiles/Engine/main.cpp
-        CppFiles/Engine/Game.hpp
-        CppFiles/Engine/Game.cpp
-        CppFiles/Engine/Physics/Player.hpp
+add_executable(untitled CppFiles/main.cpp
+        CppFiles/Engine/States/Game.hpp
+        CppFiles/Engine/States/Game.cpp
+        CppFiles/GameObjects/Player.hpp
         CppFiles/GameObjects/Player.cpp
         CppFiles/Engine/Physics/Collider.hpp
         CppFiles/Engine/Physics/Collider.cpp
         CppFiles/Engine/Physics/Collider.cpp
-        CppFiles/Engine/State.hpp
-        CppFiles/Engine/State.cpp)
+        CppFiles/Engine/States/State.hpp
+        CppFiles/Engine/States/State.cpp)
 
 target_link_libraries(untitled sfml-graphics)
